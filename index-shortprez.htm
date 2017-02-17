@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Web animation for Designers</title>
+
+<link rel="stylesheet" href="css/styles-short.css">
+
+</head>
+<body>
+
+<div class="slides">
+  <section class="titleSlide">
+    <h1>A short primer on Web Animation</h1>
+    <ol>
+<ul>
+  <ol>Types of web animation (and apps)</ol>
+  <ol>CSS transforms</ol>
+  <ol>Easing</ol>
+  <ol>Animation principles applied to web/apps</ol>
+  <ol>SVG animation</ol>
+  <ol>Inspiration</ol>
+</ul>
+
+    </ol>
+  </section>
+
+  <section>
+    <h1>Types of Web animations</h1>
+    <ol>
+    <li>Animated gifs</li>
+      <li>CSS3 transitions &amp; keyframes</li>
+      <li>SVG animations with CSS3 or JavaScript</li>
+      <li>JavaScript animations</li>
+      <li>Javascript animation with a library (jQuery, GSAP)</li>
+      <li>Canvas tag (JavaScript)</li>
+    </ol>
+  </section>
+
+  <section>
+    <h1>Types of Web animations</h1>
+    <h2>Animated gifs</h2>
+    <p>Frame to frame, indexed color, 8-bit, 256 color or less image</p>
+    <h3>Good</h3>
+    <ul>
+      <li>Well supported</li>
+      <li>Intervals and looping is controllable</li>
+    </ul>
+    <h3>Bad</h3>
+    <ul>
+      <li>Limited colors, no real transparency</li>
+      <li>Terrible for photography</li>
+      <li>Large file size</li>
+      <li>Unscriptable, no interaction</li>
+      <li>Can't control timing or state</li>
+    </ul>
+
+    <div class="center centerbig"><img src="img/llama.gif" alt="" style=""></div>
+  </section>
+
+  <section id="transitions" class="transitions">
+    <h1>CSS3 transitions</h1>
+    <p>An element change change from one state to another.</p>
+    <code>
+.square {
+  border-radius: 0;
+  background-color: rgba(119, 119, 170, 1);
+  transition: all .5s linear;
+}
+
+  .square:hover {
+    border-radius: 50%;
+    background-color: rgba(255, 19, 170, 1);
+  }
+  </code>
+  <h3>Good</h3>
+  <ul>
+    <li>Easy</li>
+    <li>Light</li>
+    <li>Controllable with delays</li>
+    <li>Semi - Scriptable (by adding a class dynamically)</li>
+    <li>IE 10+</li>
+  </ul>
+  <h3>Bad</h3>
+  <ul>
+    <li>Only state to state animations</li>
+    <li>Needs a trigger or event</li>
+  </ul>
+
+    <div class="center bottom">
+      <div class="blob square"></div>
+    </div>
+  </section>
+
+  <section id="keyframes" class="keyframes">
+    <h1>CSS3 keyframes</h1>
+    <p>An element can change along a timeline.</p>
+    <code>
+  .keyframes .square {
+    border-radius: 0;
+    animation: roundoff 3s infinite linear;
+  }
+
+  @keyframes roundoff {
+    0%, 100% {
+    border-radius: 0;
+    }
+    50% {
+    border-radius: 50%;
+    transform: translateX(200px);
+    }
+  }
+  </code>
+
+    <div class="center">
+      <div class="blob square"></div>
+    </div>
+    <h3>Good</h3>
+    <ul>
+      <li>Light</li>
+      <li>Timeline based</li>
+      <li>Play state, delays, directions etc.</li>
+      <li>Semi Scriptable (by adding a class dynamically)</li>
+      <li>IE 10+</li>
+    </ul>
+    <h3>Bad</h3>
+    <ul>
+      <li>Confusing timeline code</li>
+      <li>Difficult to sync and combine multiple transforms</li>
+    </ul>
+  </section>
+  <section id="keyframes-steps" class="keyframes">
+    <h1>CSS3 keyframes</h1>
+    <p>Using the steps() method,
+      we can move <br>a sprite's
+      background-position so it <br>
+      works like an animated gif.</p>
+    <code>
+.flourbag1 img{
+  animation: walk .8s steps(8) infinite;
+}
+
+@keyframes walk {
+  0% { transform: translateX(0px);}
+  100% {  transform: translateX(-764px); }
+}
+
+  </code>
+
+    <div class="center">
+      <div class="flourbag1"><img src="img/flour_sack_walk.png" alt=""></div>
+
+    </div>
+    <h3>Good</h3>
+    <ul>
+      <li>Animatable jpgs!</li>
+      <li>Play state, delays, directions etc.</li>
+      <li>Semi Scriptable (by adding a class dynamically)</li>
+    </ul>
+    <h3>Bad</h3>
+    <ul>
+      <li>Confusing timeline code</li>
+    </ul>
+    <button><a href="file:///Users/paulmccann/Desktop/web-animation/storyboards/animated-horses.htm" target="_blank">canvas horse example</a></button>
+  </section>
+
+
+<section>
+  <h1>The 12 principles</h1>
+  <ol>
+    <li><a href="#squash-stretch">Squash and Stretch</a></li>
+    <li>Anticipation</li>
+    <li>Staging</li>
+    <li>Straight Ahead Action and Pose to Pose</li>
+    <li>Follow Through and Overlapping Action</li>
+    <li>Slow In and Slow Out</li>
+    <li><a href="arc">Arc</a></li>
+    <li class="secondary-motion">Secondary Action</li>
+    <li>Timing &amp; spacing</li>
+    <li>Exaggeration</li>
+    <li><a href="solid-drawing">Solid drawing</a>   </li>
+  </ol>
+</section>
+
+<section>
+  <h1>More important UI Principles</h1>
+  <ol>
+    <li>Don't make 'em wait'</li>
+    <li>Don't induce seizures</li>
+    <li>Don't animate for the sake of animation, make sure it has a purpose</li>
+    <li>Watch where you're making their eyes go</li>
+    <li>Things the user needs to get to again should come and leave the same way</li>
+    <li>Things should enter faster than they leave, for percieved speed</li>
+    <li>As a beginner make your transitions half as fast as you think they should be (and double your time estimate for doing this stuff). </li>
+
+  </ol>
+</section>
+<section id="squash-stretch">
+  <h1>Squash and Stretch</h1>
+  <p>It's important to keep the same volume</p>
+<div class="stage">
+  <div class="center">
+    <div class="down">
+      <div class="up">
+        <div class="squeeze">
+          <div class="rotate-in">
+            <div class="rotate-out">
+              <div class="blob"><span></span></div>
+             </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="shadow"></div>
+  </div>
+</div>
+</section>
+<section id="secondary">
+  <h1>Secondary Action</h1>
+  <p>Similar to follow through</p>
+  <div class="entrancebox">
+    <h1>welcome</h1>
+    <p>Thanks for coming to our site.</p>
+  </div>
+<div class="center centergif">
+  <img src="img/secondary-anome-app.gif" >
+</div>
+<code class="smaller">
+  .entrancebox {
+    animation:
+    slideInUp .5s .5s cubic-bezier(.16,.9,.3,1.3) both,
+  }
+  .entrancebox *{
+    animation:
+    slideInshort 0.3s .7s cubic-bezier(.16,.9,.3,1.3) backwards;
+  }
+
+</code>
+
+<button><a href="file:///Users/paulmccann/Desktop/gitprojects/12principles/12principlesofanimation/entranceanimation.htm">Larger</a></button>
+</section>
+
+<section id="arc">
+  <h1>arc</h1>
+<div class="blob"><span></span></div>
+
+</section>
+
+<section id="arc">
+  <h1>arc</h1>
+
+  <video controls>
+<source src="https://storage.googleapis.com/material-design/publish/material_v_10/assets/0B14F_FSUCc01SDNmSjRhbE9FNVU/Intentional_01_Focus-v3.mp4" type="video/mp4">
+  </video>
+<p class="caption"><a href="https://material.io/guidelines/motion/material-motion.html#material-motion-how-does-material-move">https://material.io/guidelines/motion/material-motion.html#material-motion-how-does-material-move</a></p>
+</section>
+
+
+<section class="solid-drawing">
+  <h1>Solid drawing</h1>
+    <div class="stage">
+      <div class="center">
+          <div class="loader">
+              <div class="plane bottom"></div>
+              <div class="plane left"></div>
+              <div class="plane right"></div>
+              <div class="plane back"></div>
+              <div class="plane front"></div>
+              <div class="plane top"></div>
+              <div class="plane fill-top"></div>
+          </div>
+      </div>
+      <p class="caption">This needs a horizon line so the flip illusion doesn't kick in.</p>
+    </div>
+</section>
+
+
+<section class="secondary-motion">
+  <h1>Secondary Motion</h1>
+    <div class="frame">
+      <div class="center">
+        <p data-height="265" data-theme-id="0" data-slug-hash="OVpVBr" data-default-tab="js,result" data-user="chrisgannon" data-embed-version="2" data-pen-title="Dancing SVG lines with eyes " class="codepen">See the Pen <a href="http://codepen.io/chrisgannon/pen/OVpVBr/">Dancing SVG lines with eyes </a> by Chris Gannon (<a href="http://codepen.io/chrisgannon">@chrisgannon</a>) on <a href="http://codepen.io">CodePen</a>.</p>
+        <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+      </div>
+
+    </div>
+</section>
+
+
+
+<section class="circlepath">
+  <h1>easing</h1>
+  <div class="circle"></div>
+<div class="rotatingthing">
+  <img src="http://paulmccann.com/images/codepen/textalongapath.png" alt="">
+</div>
+<div class="explanation">
+  <p>
+  This is a simple demo to show how to set the   transform origin of some curved, rotating text.
+  </p>
+  <p>
+    The transform-origin of the curved text is set halfway across on the Y axis and 240% down on the X (roughly the center of the circle.)
+  </p>
+  <p>The next step is to make this scalable. It's probably easier to absolutely nest the text box in the circle, so calculating the center point just takes some radius math.</p>
+  <p>I've used an arbitary asset for this, but would used a more precise path and image width if it needed to be perfect.</p>
+</div>
+
+
+</section>
+<section>
+  <h1>Tabs</h1>
+  <h2></h2>
+<ul>
+  <li>
+    <a href="http://www.hampsterdance.com/classics/originaldance.htm">Hampsters</a>
+  </li>
+  <li>
+    <a href="https://www.nytimes.com/interactive/2017/02/10/nyregion/how-new-york-city-gets-its-electricity-power-grid.html?hp&action=click&pgtype=Homepage&clickSource=story-heading&module=second-column-region&region=top-news&WT.nav=top-news">NYT</a>
+  </li>
+
+
+https://greensock.com/html5-banners
+  http://codepen.io/
+</ul>
+
+
+</section>
+
+<section class="resources">
+  <h1>Resources</h1>
+<ul>
+  <li>http://codepen.io/perry_nt/pen/OWoNxK</li>
+  <li><p>Motion in material design:</p>
+    <a href="https://www.youtube.com/watch?v=6p3i6H2oGa0">https://www.youtube.com/watch?v=6p3i6H2oGa0</a></li>
+    <li><p>Material design specs - motion:</p>
+      <a href="https://material.io/guidelines/motion/material-motion.html">https://material.io/guidelines/motion/material-motion.html</a></li>
+
+      https://www.youtube.com/user/framespark
+
+</ul>
+</section>
+
+<section>
+  <h1>Resources</h1>
+http://codepen.io/perry_nt/pen/OWoNxK
+
+
+https://www.youtube.com/watch?v=6p3i6H2oGa0
+</section>
+
+
+<section class="endslide">
+  <h1>End</h1>
+<a href="examples/fireworkscanvas.htm">Canvas fireworks</a>
+</section>
+
+</div>
+
+
+
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Demo HTML</title>
+  <style>
+
+  body {
+    font: 1em "Open Sans", arial;
+    margin: 0;
+    padding: 0;
+  }
+  section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+  }
+  .thing {
+    width: 100px;
+    height: 100px;
+    border: 1px solid black;
+    overflow:hidden;
+  }
+
+  .thing img{
+    animation: walk .8s steps(8) infinite;
+  }
+
+  @keyframes walk {
+    0% { transform: translateX(0px);}
+    100% {  transform: translateX(-764px); }
+  }
+
+  </style>
+</head>
+<body>
+
+  <div class="wrapper">
+    <section>
+      <div class="thing"><img src="../img/flour_sack_walk.png" alt=""></div>
+    </section>
+  </div>
+
+</body>
+</html>

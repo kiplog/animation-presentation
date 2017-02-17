@@ -25,57 +25,61 @@
 
     </ol>
   </section>
-  <div>
-     A bunch of
-    words you see.
-  </div>
   <section id="transitions" class="transitions">
     <h1>CSS3 transitions</h1>
     <p>An element change change from one state to another.</p>
-    <!-- <code>
-    .square {
-      border-radius: 0;
-      transition: all .5s linear;
-    }
+    <code>
+.square {
+  border-radius: 0;
+  background-color: rgba(119, 119, 170, 1);
+  transition: all .5s linear;
+}
 
-    .square:hover {
-        border-radius: 50%;
-    }
-  </code> -->
-  <br>
-<code>
-  code {
-   white-space: pre;
-   line-height: 1em; /* doesn't work */
+  .square:hover {
+    border-radius: 50%;
+    background-color: rgba(255, 19, 170, 1);
   }
-</code>
-<code class="block">
-  code {
-    display: block;
-    white-space: pre;
-    line-height: 1em; /* works */
+  </code>
+
+<!-- <code>
+  /*transitions*/
+
+  .transitions .square:hover {
+      border-radius: 50%;
+      background-color: rgba(255, 19, 170, 1);
   }
-</code>
-<pre class="inline">
-  pre {
-    display: inline;
-    white-space: pre;
-    line-height: 1em;
-  }
-</pre>
-<pre>
-  pre {
-    display: block;
-    white-space: pre;
-    font-size: 14px;
-    line-height: 1em;
-  }
-</pre>
-    <!-- <div class="center">
+</code> -->
+
+    <div class="center">
       <div class="blob square"></div>
-    </div> -->
+    </div>
   </section>
+  <section id="keyframes" class="keyframes">
+    <h1>CSS3 keyframes</h1>
+    <p>An element can change along a timeline.</p>
+    <code>
+  .keyframes .square {
+    border-radius: 0;
+    animation: roundoff 3s infinite linear;
+  }
 
+  @keyframes roundoff {
+    0%, 100% {
+    border-radius: 0;
+    }
+    50% {
+    border-radius: 50%;
+    transform: translateX(200px);
+    }
+  }
+  </code>
+
+
+
+    <div class="center">
+      <div class="blob square"></div>
+    </div>
+  </section>
 
 <section>
   <h1>The 12 principles</h1>
@@ -143,15 +147,50 @@
     </div>
 </section>
 
+<section class="circlepath">
+  <h1>easing</h1>
+  <div class="circle"></div>
+<div class="rotatingthing">
+  <img src="http://paulmccann.com/images/codepen/textalongapath.png" alt="">
+</div>
+<div class="explanation">
+  <p>
+  This is a simple demo to show how to set the   transform origin of some curved, rotating text.
+  </p>
+  <p>
+    The transform-origin of the curved text is set halfway across on the Y axis and 240% down on the X (roughly the center of the circle.)
+  </p>
+  <p>The next step is to make this scalable. It's probably easier to absolutely nest the text box in the circle, so calculating the center point just takes some radius math.</p>
+  <p>I've used an arbitary asset for this, but would used a more precise path and image width if it needed to be perfect.</p>
+</div>
 
+
+</section>
 <section>
   <h1>Visual Feedback</h1>
   <h2></h2>
 
 </section>
+
+<section class="resources">
+  <h1>Resources</h1>
+<ul>
+  <li>http://codepen.io/perry_nt/pen/OWoNxK</li>
+  <li><p>Motion in material design:</p>
+    <a href="https://www.youtube.com/watch?v=6p3i6H2oGa0">https://www.youtube.com/watch?v=6p3i6H2oGa0</a></li>
+    <li><p>Material design specs - motion:</p>
+      <a href="https://material.io/guidelines/motion/material-motion.html">https://material.io/guidelines/motion/material-motion.html</a></li>
+
+</ul>
+</section>
+
+
 <section class="endslide">
   <h1>End</h1>
+http://codepen.io/perry_nt/pen/OWoNxK
 
+
+https://www.youtube.com/watch?v=6p3i6H2oGa0
 </section>
 
 </div>
